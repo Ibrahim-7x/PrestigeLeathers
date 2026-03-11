@@ -18,7 +18,7 @@
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {{-- Product Gallery --}}
             <div class="relative" data-aos="fade-right">
-                <div class="aspect-square rounded-2xl bg-gradient-to-br from-dark-800 to-dark-900 border border-white/5 flex items-center justify-center overflow-hidden group relative">
+                <div class="aspect-square rounded-2xl bg-dark-900 border border-white/5 overflow-hidden group relative">
                     {{-- Badge --}}
                     @if ($product['badge'])
                     <div class="absolute top-6 left-6 z-10 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider
@@ -31,12 +31,7 @@
                     </div>
                     @endif
 
-                    <div class="text-center">
-                        <div class="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary-500/10 to-gold-500/10 flex items-center justify-center">
-                            <i data-lucide="package" class="w-20 h-20 text-gray-600"></i>
-                        </div>
-                        <span class="text-sm text-gray-500 uppercase tracking-wider">{{ $product['category_name'] }}</span>
-                    </div>
+                    <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
 
                     {{-- Zoom icon --}}
                     <button class="absolute bottom-6 right-6 w-12 h-12 glass rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/10">
@@ -291,11 +286,8 @@
                 @foreach ($relatedProducts as $related)
                 <div class="group card-hover">
                     <div class="bg-dark-800/50 rounded-2xl overflow-hidden border border-white/5 hover:border-primary-500/30 transition-colors duration-500">
-                        <div class="aspect-[3/4] bg-gradient-to-br from-dark-800 to-dark-900 flex items-center justify-center product-img-wrapper">
-                            <div class="text-center">
-                                <i data-lucide="package" class="w-12 h-12 text-gray-700 mx-auto mb-2"></i>
-                                <span class="text-xs text-gray-600">{{ $related['category_name'] }}</span>
-                            </div>
+                        <div class="aspect-[3/4] bg-dark-900 overflow-hidden">
+                            <img src="{{ $related['image'] }}" alt="{{ $related['name'] }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                         </div>
                         <div class="p-5">
                             <a href="{{ route('product', $related['slug']) }}">

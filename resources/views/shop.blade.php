@@ -124,11 +124,8 @@
                         <div class="group card-hover">
                             <div class="bg-dark-800/50 rounded-2xl overflow-hidden border border-white/5 hover:border-primary-500/30 transition-colors duration-500">
                                 {{-- Image --}}
-                                <div class="relative product-img-wrapper aspect-[3/4] bg-gradient-to-br from-dark-800 to-dark-900 flex items-center justify-center">
-                                    <div class="text-center">
-                                        <i data-lucide="package" class="w-16 h-16 text-gray-700 mx-auto mb-3"></i>
-                                        <span class="text-xs text-gray-600 uppercase tracking-wider" x-text="product.category_name"></span>
-                                    </div>
+                                <div class="relative product-img-wrapper aspect-[3/4] bg-dark-900 overflow-hidden">
+                                    <img :src="product.image" :alt="product.name" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
 
                                     {{-- Badge --}}
                                     <div x-show="product.badge" class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
